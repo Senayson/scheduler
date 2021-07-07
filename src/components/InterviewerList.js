@@ -7,13 +7,14 @@ export default function InterviewerList(props) {
   const interviewerIterated = props.interviewers.map((interviewer) => {
     return (
       <section className="interviewers">
-        {/* <h4 className="interviewers__header text--light">Interviewer</h4> */}
+        <h4 className="interviewers__header text--light">Interviewer</h4>
         <ul className="interviewers__list">
           <InterviewerListItem
             key={interviewer.id}
             name={interviewer.name}
             avatar={interviewer.avatar}
-            setInterviewer={props.setInterviewer}
+            setInterviewer={(event) => props.setInterviewer(interviewer.id)}
+            selected={interviewer.id === props.interviewer}
           />
         </ul>
       </section>

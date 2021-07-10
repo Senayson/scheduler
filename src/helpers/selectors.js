@@ -2,7 +2,7 @@ const { default: Appointment } = require("components/Appointment");
 
 function getAppointmentsForDay(state, dayProvided) {
   const appointmentsArray = [];
-  const statedDay = state.days.filter((day) => day.id === dayProvided);
+  const statedDay = state.days.filter((day) => day.name === dayProvided);
   if (statedDay.length === 0) {
     return appointmentsArray;
   }

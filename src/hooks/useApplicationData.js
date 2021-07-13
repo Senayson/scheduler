@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 // import DayList from "./DayList";
 // import Appointment from "./Appointment";
@@ -47,10 +47,30 @@ export default function useApplicationData() {
     });
   };
 
+  function updateSpots(state, dayId) {
+    const newState = { ...state };
+    // const dayName = day || state.day;
+    const ourDay = newState.days.find((day) => day.id === dayId);
+    const ourDayIndex = newState.days.findIndex((day) => day.id === dayId);
+    const ourAppointments = ourDay.appointments;
+    const ourSpots = ourAppointments.filter(
+      (id) => !newState.appointments[id].interview
+    );
+    const numOfSpots = ourSpots.length;
+
+    const updatedDay = { ...ourDay, spots: numOfSpots };
+
+    newState.days = [...state.days];
+    newState.days[ourDayIndex] = updatedDay;
+    console.log("Tell me this is working", newState);
+    return newState;
+  }
+
   return {
     state: state,
     setState: setState,
     setDay: setDay,
+    updateSpots: updateSpots,
     bookInterview: bookInterview,
     cancelInterview: cancelInterview,
   };

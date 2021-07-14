@@ -3,8 +3,6 @@ import Button from "components/Button";
 import InterviewerList from "components/InterviewerList";
 
 export default function Form(props) {
-  // const { name, interviewers, interviewer, onSave, onCancel } = props;
-
   const reset = function () {
     setName("");
     setInterviewer(null);
@@ -42,7 +40,14 @@ export default function Form(props) {
           <Button onClick={cancel} danger>
             Cancel
           </Button>
-          <Button onClick={props.onSave} confirm>
+          <Button
+            name={props.name}
+            interviewer={props.interviewer}
+            onClick={() => {
+              props.onSave(name, interviewer);
+            }}
+            confirm
+          >
             Save
           </Button>
         </section>

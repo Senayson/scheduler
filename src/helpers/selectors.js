@@ -1,8 +1,8 @@
 const { default: Appointment } = require("components/Appointment");
 
-function getAppointmentsForDay(state, dayProvided) {
+function getAppointmentsForDay(state, dayId) {
   const appointmentsArray = [];
-  const statedDay = state.days.filter((day) => day.name === dayProvided);
+  const statedDay = state.days.filter((day) => day.id === dayId);
   if (statedDay.length === 0) {
     return appointmentsArray;
   }
@@ -12,4 +12,30 @@ function getAppointmentsForDay(state, dayProvided) {
   return appointmentsArray;
 }
 
-export { getAppointmentsForDay };
+function getInterview(state, interview) {
+  let intObj = null;
+  if (interview) {
+    intObj = {
+      student: interview.student,
+      interviewer: state.interviewers[interview.interviewer],
+    };
+  }
+
+  return intObj;
+}
+
+function getInterviewersForDay(state, dayId) {
+  const interviewersArray = [];
+  const statedDay = state.days.filter((day) => day.id === dayId);
+  if (statedDay.length === 0) {
+    return interviewersArray;
+  }
+
+  const statedInt = statedDay[0].interviewers.forEach((id) => {
+    interviewersArray.push(state.interviewers[id]);
+  });
+
+  return interviewersArray;
+}
+
+module.exports = { getInterview, getAppointmentsForDay, getInterviewersForDay };

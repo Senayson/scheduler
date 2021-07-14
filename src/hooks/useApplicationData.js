@@ -22,11 +22,13 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment,
     };
-
+    console.log("This is bfr book/app", state.appointments);
     return axios
       .put(`/api/appointments/${id}`, appointment)
       .then((response) => {
-        setState({ ...state, appointments: appointments });
+        setState((state) => ({ ...state, appointments: appointments }));
+        setState((state) => updateSpots(state));
+        //console.log("This is aft book/app", state.appointments);
       });
   };
 
@@ -42,28 +44,22 @@ export default function useApplicationData() {
     };
 
     return axios.delete(`/api/appointments/${id}`).then((response) => {
-      console.log("this is axios response ---", response);
-      setState({ ...state, appointments: appointments });
+      // console.log("this is axios response ---", response);
+      setState((state) => ({ ...state, appointments: appointments }));
+      setState((state) => updateSpots(state));
     });
   };
 
-  function updateSpots(state, dayId) {
-    const newState = { ...state };
-    // const dayName = day || state.day;
-    const ourDay = newState.days.find((day) => day.id === dayId);
-    const ourDayIndex = newState.days.findIndex((day) => day.id === dayId);
-    const ourAppointments = ourDay.appointments;
-    const ourSpots = ourAppointments.filter(
-      (id) => !newState.appointments[id].interview
-    );
-    const numOfSpots = ourSpots.length;
-
-    const updatedDay = { ...ourDay, spots: numOfSpots };
-
-    newState.days = [...state.days];
-    newState.days[ourDayIndex] = updatedDay;
-    console.log("Tell me this is working", newState);
-    return newState;
+  function updateSpots(state) {
+    const days = state.days.map((day) => {
+      return {
+        ...day,
+        spots: day.appointments.filter(
+          (id) => !state.appointments[id].interview
+        ).length,
+      };
+    });
+    return { ...state, days };
   }
 
   return {

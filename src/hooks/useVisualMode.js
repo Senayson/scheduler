@@ -20,7 +20,7 @@ function useVisualMode(initial) {
     if (history.indexOf(mode) === 0) {
       return mode;
     }
-    console.log("Backhistory", history);
+
     setMode(history[history.indexOf(mode) - 1]);
   }
   return { mode: mode, transition: transition, back: back };

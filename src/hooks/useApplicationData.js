@@ -1,7 +1,5 @@
 import { useState } from "react";
 import axios from "axios";
-// import DayList from "./DayList";
-// import Appointment from "./Appointment";
 
 export default function useApplicationData() {
   const [state, setState] = useState({
@@ -22,13 +20,11 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment,
     };
-    console.log("This is bfr book/app", state.appointments);
     return axios
       .put(`/api/appointments/${id}`, appointment)
       .then((response) => {
         setState((state) => ({ ...state, appointments: appointments }));
         setState((state) => updateSpots(state));
-        //console.log("This is aft book/app", state.appointments);
       });
   };
 
@@ -44,7 +40,6 @@ export default function useApplicationData() {
     };
 
     return axios.delete(`/api/appointments/${id}`).then((response) => {
-      // console.log("this is axios response ---", response);
       setState((state) => ({ ...state, appointments: appointments }));
       setState((state) => updateSpots(state));
     });

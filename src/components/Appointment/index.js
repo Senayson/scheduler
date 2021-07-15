@@ -45,7 +45,7 @@ export default function Appointment(props) {
   }
 
   return (
-    <article className="appointment">
+    <article data-testid="appointment" className="appointment">
       <Header time={props.time} />
       {mode === EMPTY && (
         <Empty
@@ -98,6 +98,7 @@ export default function Appointment(props) {
       )}
       {mode === ERROR_DELETE && (
         <Error
+          data-testid="deleteError"
           message="Error deleting appointment"
           onClose={() => {
             back();

@@ -24,6 +24,6 @@ npm run storybook
 
 ## Views
 
-! ['View of app with empty appointment slot']()
-! ['User creating an appointment'] ()
-! ["View of app with an appointment created"] ()
+! ['View of app with empty appointment slot'](https://github.com/Senayson/scheduler/blob/master/docs/Empty%20app.png
+! ['User creating an appointment'] https://github.com/Senayson/scheduler/blob/master/docs/Create%20app.png
+! ["View of app with an appointment created"] https://github.com/Senayson/scheduler/blob/master/docs/App%20Created.png

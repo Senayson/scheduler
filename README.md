@@ -1,5 +1,9 @@
 # Interview Scheduler
 
+The Interview Scheduler app is a react app designed to enable a user to book an appointment, cancel an appointment and edit an appointment with an available interviewer. It enables the user to view weekly available spots and select an appropriate time for their interview.
+
+The app is predominately based on the React javascript library. It as well utilizes CSS for styling and a Postgresql database.
+
 ## Setup
 
 Install dependencies with `npm install`.

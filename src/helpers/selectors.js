@@ -1,12 +1,10 @@
-const { default: Appointment } = require("components/Appointment");
-
 function getAppointmentsForDay(state, dayId) {
   const appointmentsArray = [];
   const statedDay = state.days.filter((day) => day.id === dayId);
   if (statedDay.length === 0) {
     return appointmentsArray;
   }
-  const statedApp = statedDay[0].appointments.forEach((id) => {
+  statedDay[0].appointments.forEach((id) => {
     appointmentsArray.push(state.appointments[id]);
   });
   return appointmentsArray;
@@ -31,7 +29,7 @@ function getInterviewersForDay(state, dayId) {
     return interviewersArray;
   }
 
-  const statedInt = statedDay[0].interviewers.forEach((id) => {
+  statedDay[0].interviewers.forEach((id) => {
     interviewersArray.push(state.interviewers[id]);
   });
 

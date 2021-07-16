@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import useApplicationData from "hooks/useApplicationData";
 
@@ -28,7 +28,7 @@ export default function Application(props) {
         interviewers: response[2].data,
       }));
     });
-  }, []);
+  }, [setState]);
 
   const interviewers = getInterviewersForDay(state, state.day);
 

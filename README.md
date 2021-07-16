@@ -21,3 +21,9 @@ npm test
 ```sh
 npm run storybook
 ```
+
+## Views
+
+! ['View of app with empty appointment slot']()
+! ['User creating an appointment'] ()
+! ["View of app with an appointment created"] ()

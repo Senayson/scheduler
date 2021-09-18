@@ -2,16 +2,16 @@ version: 2
 jobs:
   build:
     docker:
-      - image: cirleci/node:10.16
+      - image: circleci/node:10.16
 
     working_directory: ~/client
 
     steps:
       - checkout
       - restore_cache:
-        keys:
-          - v1-dependencies-{{ checksum "package.json"}}
-          - vi-dependencies-
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
       - run: npm install
       - save_cache:
           paths:

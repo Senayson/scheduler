@@ -10,7 +10,7 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-scripts": "3.0.0",
-    "yarn": "^1.22.10"
+    "yarn": "^1.22.11"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,13 +34,12 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "^7.14.6",
+    "@babel/core": "^7.15.5",
     "@storybook/addon-actions": "^5.3.21",
     "@storybook/addon-backgrounds": "^5.3.21",
     "@storybook/addon-links": "^5.3.21",
     "@storybook/addons": "^5.3.21",
     "@storybook/react": "^5.3.21",
-    "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^8.0.9",
     "@testing-library/react-hooks": "^7.0.1",
     "cypress": "^7.7.0",
@@ -48,11 +47,5 @@
     "prop-types": "^15.7.2",
     "react-test-renderer": "^16.14.0",
     "yarn-upgrade-all": "^0.5.4"
-  },
-  "jest": {
-    "watchPathIgnorePatterns": [
-      "<rootDir>/node_modules/",
-      "<rootDir>/.git/"
-    ]
   }
 }

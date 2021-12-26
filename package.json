@@ -45,9 +45,10 @@
     "@testing-library/react-hooks": "^7.0.1",
     "cypress": "^7.7.0",
     "jest": "24.7.1",
-    "node-sass": "^4.14.1",
+    "node-sass": "^6.0.0",
     "prop-types": "^15.7.2",
     "react-test-renderer": "^16.14.0",
+    "v6": "0.0.0",
     "yarn-upgrade-all": "^0.5.4"
   }
 }

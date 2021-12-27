@@ -4,7 +4,17 @@ The Interview Scheduler app is a react app designed to enable a user to book an 
 
 The app is predominately based on the React javascript library. It as well utilizes CSS for styling and a Postgresql database.
 
-## Setup
+The app uses a continuous integration process using CircleCI and the client server is hosted on Netlify. The API server is hosted on Heroku.
+
+## Running the Client server
+https://61c99906b5f4a2f4f36c7e0b--jovial-goodall-a35eb8.netlify.app
+
+## Running the API server
+http://senayscheduler.herokuapp.com/api/days
+
+
+
+## Setup on Local Host
 
 Install dependencies with `npm install`.
 
